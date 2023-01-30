@@ -1,6 +1,6 @@
 window.$docsify = {
     name: '',
-    repo: '',
+    repo: 'https://hanbaobei.github.io',
     // 加载侧边栏
     loadSidebar: 'src/pages/sidebar.md',
     //生成目录的最大层级
