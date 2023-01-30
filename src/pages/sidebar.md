@@ -1,4 +1,5 @@
 - [首页](/src/pages/home.md)
+- [资源整理](/src/docs/资源整理/README.md)
 - [前端项目](/src/docs/Project/README.md)
     - [屏幕滚动(FullPageJs)](/src/docs/Project/屏幕滚动(FullPageJs)/屏幕滚动(FullPageJs).md)
     - [Javascript调用摄像头](/src/docs/Project/Javascript调用摄像头/Javascript调用摄像头.md)
@@ -20,5 +21,6 @@
         - [使用Docker搭建Centos开发环境镜像](/src/docs/notes/Docker/使用Docker搭建Centos开发环境镜像/使用Docker搭建Centos开发环境镜像.md)
 - [NodeJs使用](/src/docs/NodeJs/README.md)
   - [离线IP地址定位库(ip2region)](/src/docs/NodeJs/离线IP地址定位库/离线IP地址定位库.md)
+
 
 
