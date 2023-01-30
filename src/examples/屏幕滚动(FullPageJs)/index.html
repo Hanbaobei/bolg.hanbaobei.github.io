@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--引入fullpage.js插件的样式，必须-->
+    <link rel="stylesheet" type="text/css" href="StyleSheet/fullpage.css"/>
+
+    <script src="JavaScript/jquery.js"></script>
+    <!--引入jQuery的插件fullpage.js核心文件-->
+    <script type="text/javascript" src="JavaScript/fullpage.js"></script>
+    <title>屏幕滚动(FullPageJs)</title>
+</head>
+<body>
+<div id="fullpage">
+    <div class="section s1">
+        <h3 class="sec-title amt amt-delay-3 lightSpeedIn" amt="lightSpeedIn">人工智能时代，学习编程让孩子不一样的未来！</h3>
+        <div class="img-list amt amt-delay-6 bounceInUp" amt="bounceInUp">
+            <img data-src="./img/s1-1.png" alt="孩子的未来">
+            <img data-src="./img/s1-2.jpg" alt="孩子的未来">
+            <img data-src="./img/s1-3.jpg" alt="孩子的未来">
+        </div>
+    </div>
+    <div class="section s2">
+        <h3 class="sec-title amt amt-delay-3" amt="bounceInDown">我们的理念</h3>
+        <ul class="s2-l amt amt-delay-6" amt="slideInLeft">
+            <li class="s2-l-item">imagine（想象）：让孩子去天马行空；</li>
+            <li class="s2-l-item">create（创造）：通过创造现实结合起来；</li>
+            <li class="s2-l-item">play（动手玩）：亲自动手创作项目；</li>
+            <li class="s2-l-item">share（分享）：项目分享给其他人；</li>
+            <li class="s2-l-item">reflect（反思）：对项目的反思和改进。</li>
+        </ul>
+        <div class="s2-r amt amt-delay-8" amt="slideInRight">
+            <img data-src="./img/s2-1.png" alt="少儿编程">
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+    $(function () {
+        $('#fullpage').fullpage({
+            sectionsColor: ['rgba(88,185,156, 1)', '#fff', '#DE8910', '#0da5d6', 'rgb(235, 76, 67)', 'rgb(141, 127, 219)', 'rgb(227,135,88)','rgb(98,198,188)' ],
+            lazyLoading: true,
+            onLeave: function (index, nextIndex, direction) {
+                $('.section').find('.amt').each(function(index, elem) {
+                    var amt = $(elem).attr('amt');
+                    $(elem).removeClass(amt);
+                })
+
+                $('.section').eq(nextIndex-1).find('.amt').each(function(index, elem) {
+                    var amt = $(elem).attr('amt');
+                    $(elem).addClass(amt)
+                })
+            }
+        });
+    });
+</script>
+
+</html>

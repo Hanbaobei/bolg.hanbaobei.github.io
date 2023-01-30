@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>video</title>
+</head>
+<body>
+<h2 style="text-align: center;">这是主播页面</h2>
+<input type="button" title="开启摄像头" value="开启摄像头" onclick="getMedia()"/>
+<video id="video" autoplay="autoplay"></video>
+<canvas id="canvas"></canvas>
+<button onclick="start()">开始直播</button>
+<button onclick="stop()">停止直播</button>
+<script>
+    //获得video摄像头区域
+    var video = document.getElementById("video");
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+
+    function getMedia() {
+        /**
+         * @function:navigator.mediaDevices.getUserMedia();
+         * @param:constraints
+         * 作为一个MediaStreamConstraints 对象，指定了请求的媒体类型和相对应的参数
+         * constraints参数是一个包含了video 和 audio两个成员的MediaStreamConstraints对象
+         * 用于说明请求的媒体类型。必须至少一个类型或者两个同时可以被指定。
+         * 如果为某种媒体类型设置了 true ，得到的结果的流中就需要有此种类型的轨道。
+         * 如果其中一个由于某种原因无法获得，getUserMedia() 将会产生一个错误。
+         * */
+        var constraints = {
+            /**
+             * #尺寸
+             * 当由于隐私保护的原因，无法访问用户的摄像头和麦克风信息时，
+             * 应用可以使用额外的constraints参数请求它所需要或者想要的摄像头和麦克风能力
+             * 强制要求获取特定的尺寸时，可以使用关键字min, max, 或者 exact(就是 min == max). 以下参数表示要求获取最低为1280x720的分辨率。
+             * 针对多种媒体devices
+             * 强制使用前置摄像头（如果有的话）：facingMode: "user"
+             * 强制使用后置摄像头，请用：facingMode: { exact: "environment" }
+             */
+            video: {
+                width: {min: 1024, ideal: 1280, max: 1920},
+                height: {min: 720, ideal: 720, max: 1080}
+            },
+            audio: false
+        };
+
+        /**
+         H5新媒体接口: navigator.mediaDevices.getUserMedia()
+         这个方法会提示用户是否允许媒体输入,(媒体输入主要包括相机,视频采集设备,屏幕共享服务,麦克风,A/D转换器等)
+         返回的是一个Promise对象。
+         如果用户同意使用权限,则会将 MediaStream对象作为resolve()的参数传给then()
+         如果用户拒绝使用权限,或者请求的媒体资源不可用,则会将 PermissionDeniedError作为reject()的参数传给catch()
+         */
+        var promise = navigator.mediaDevices.getUserMedia(constraints);
+        promise.then(function (MediaStream) {
+            video.srcObject = MediaStream;
+            video.play();
+            //获取视频流的Blob对象
+            //GetBlob(MediaStream);
+        }).catch(function (PermissionDeniedError) {
+            //获取错误
+            console.log(PermissionDeniedError);
+        })
+
+        return promise;
+
+    }
+
+    //封装MediaRecorder对象转换Blob对象的方法
+    function GetBlob(localStream) {
+        //加载MedMediaRecorder
+        let mediaRecorder = new MediaRecorder(localStream);
+        console.log(mediaRecorder)
+        //转换对象
+        mediaRecorder.ondataavailable = function (blob) {
+            console.log(blob.data)
+            //将获取的数据流设置到video标签中
+            video.src = URL.createObjectURL(blob.data)
+            //播放视频
+            video.play();
+        }
+        mediaRecorder.start(1000)
+    }
+
+    var socket = new WebSocket("ws://localhost:8080/CameraSocket?video");
+    //打开socket
+    socket.onopen = function () {
+        console.log("open success")
+    }
+
+    //接收到消息的回调方法
+    socket.onmessage = function (event) {
+
+    }
+
+    //连接关闭的回调方法
+    socket.onclose = function () {
+        console.log("close");
+    }
+
+    var interval
+
+    function start() {
+        interval = window.setInterval(function () {
+            ctx.drawImage(video, 0, 0, 500, 500);
+            // socket.send(canvas.toDataURL("image/jpeg", 0.1));
+            socket.send(video)
+        }, 0.1);
+    }
+
+
+    function stop() {
+
+        clearInterval(interval)
+    }
+</script>
+</body>
+</html>

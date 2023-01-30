@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="border: 1px solid red; width: 510px;height: 310px;">
+        <canvas id="signName" width="500" height="300"></canvas>
+    </div>
+
+    <button>生成图片</button>
+    <img id="newImage" src="" />
+
+
+</body>
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="./js/canvasSignature.js"></script>
+
+<script>
+    //初始化签名样式（这里仅支持一个签名，如需多个签名框需改写组件）
+    $("#signName").canvasSignature({
+        fillStyle: 'transparent',	//生成图片背景色，默认为透明
+        lineWidth: 1,	//笔画粗细（尺寸），默认为四像素粗细
+        strokeStyle: 'red'	//笔画颜色，默认为黑色
+    })
+    $("button").click(function () {
+        console.log($('#signName').createSignature('png'));
+        $('#newImage').attr('src', $('#signName').createSignature('png'));
+    })
+</script>
+
+</html>
