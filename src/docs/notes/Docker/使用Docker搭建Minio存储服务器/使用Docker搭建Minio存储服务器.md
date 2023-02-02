@@ -33,22 +33,21 @@ mkdir -p /home/minio/data
 ### 4. 创建Minio容器并运行
 >[!tip]
 > 9090端口指的是minio的客户端端口
+> 9000端口是minioAPi端口
 > - MINIO_ACCESS_KEY ：账号
 > - MINIO_SECRET_KEY ：密码（账号长度必须大于等于5，密码长度必须大于等于8位）
 
 #### 多行模式
 ```shell
-
 docker run -p 9000:9000 -p 9090:9090 \
-     --net=host \
-     --name minio \
-     -d --restart=always \
-     -e "MINIO_ACCESS_KEY=minioadmin" \
-     -e "MINIO_SECRET_KEY=minioadmin" \
-     -v /home/minio/data:/data \
-     -v /home/minio/config:/root/.minio \
-     minio/minio server \
-     /data --console-address ":9090" -address ":9000"
+  --name minio \
+  -d --restart=always \
+  -e "MINIO_ACCESS_KEY=minioadmin" \
+  -e "MINIO_SECRET_KEY=minioadmin" \
+  -v /home/minio/data:/data \
+  -v /home/minio/config:/root/.minio \
+  minio/minio server \
+  /data --console-address ":9090" -address ":9000"
 ```
 #### 单行模式
 
