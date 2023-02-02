@@ -19,6 +19,7 @@
         - [Centos搭建Docker环境](/src/docs/notes/Centos/Centos搭建Docker环境/Centos搭建Docker环境.md)
     - [Docker笔记](/src/docs/notes/Docker/README.md)
         - [使用Docker搭建Centos开发环境镜像](/src/docs/notes/Docker/使用Docker搭建Centos开发环境镜像/使用Docker搭建Centos开发环境镜像.md)
+        - [使用Docker搭建Minio存储服务器](/src/docs/notes/Docker/使用Docker搭建Minio存储服务器/使用Docker搭建Minio存储服务器.md)
 - [NodeJs使用](/src/docs/NodeJs/README.md)
   - [离线IP地址定位库(ip2region)](/src/docs/NodeJs/离线IP地址定位库/离线IP地址定位库.md)
 
