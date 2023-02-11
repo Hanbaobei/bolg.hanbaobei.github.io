@@ -2,6 +2,7 @@
 - [资源整理](/src/docs/资源整理/README.md)
 
 **前端项目**
+
 - [NodeJS](/src/examples/NodeJs/README.md)
 - [屏幕滚动(FullPageJs)](/src/docs/Project/屏幕滚动(FullPageJs)/屏幕滚动(FullPageJs).md)
 - [Javascript调用摄像头](/src/docs/Project/Javascript调用摄像头/Javascript调用摄像头.md)
@@ -15,18 +16,20 @@
 - [使用Canvas画爱心](/src/docs/Project/使用Canvas画爱心/使用Canvas画爱心.md)
 
 **教程笔记**
-- [Git笔记]()
+
+- [Git笔记](/src/docs/notes/Git/README.md)
     - [Git提交流程](/src/docs/notes/Git/Git提交流程/Git提交流程.md)
-- [CentOS笔记]()
+- [CentOS笔记](/src/docs/notes/Centos/README.md)
     - [Centos搭建Java环境](/src/docs/notes/Centos/Centos搭建Java环境/Centos搭建Java环境.md)
     - [Centos搭建Docker环境](/src/docs/notes/Centos/Centos搭建Docker环境/Centos搭建Docker环境.md)
-- [Docker笔记]()
+    - [Centos挂载磁盘](/src/docs/notes/Centos/Centos挂载磁盘/Centos挂载磁盘.md)
+- [Docker笔记](/src/docs/notes/Docker/README.md)
     - [使用Docker搭建Centos开发环境镜像](/src/docs/notes/Docker/使用Docker搭建Centos开发环境镜像/使用Docker搭建Centos开发环境镜像.md)
     - [使用Docker搭建Minio存储服务器](/src/docs/notes/Docker/使用Docker搭建Minio存储服务器/使用Docker搭建Minio存储服务器.md)
-- [NodeJs使用]()
+- [NodeJs使用](/src/docs/notes/NodeJs/README.md)
     - [离线IP地址定位库(ip2region)](/src/docs/NodeJs/离线IP地址定位库/离线IP地址定位库.md)
-- [自动化部署]()
-    - [使用Jenkins](/src/docs/自动化部署/Jenkins/README.md)
+- [自动化部署](/src/docs/notes/自动化部署/README.md)
+    - [使用Jenkins](/src/docs/notes/自动化部署/Jenkins/README.md)
 
 
 
