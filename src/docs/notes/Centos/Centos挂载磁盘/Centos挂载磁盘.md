@@ -84,9 +84,9 @@ vim /etc/fstab
 
 ### 9.2 配置启动自动挂载
 
-···shell
+```shell
   /dev/sdb    /hanhan    ext4    defaults    0 0
-···
+```
 
 ## 10.重启
 
