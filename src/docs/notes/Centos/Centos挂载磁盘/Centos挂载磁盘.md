@@ -51,7 +51,7 @@ blkid
 > 挂载需要将硬盘挂载在挂载点上（一个文件夹），但是mount并不会创建文件夹，所以在使用mount命令之前首先创建挂载点
 
 ```shell
-mkdir /ssd
+mkdir /hanhan
 
 ```
 
@@ -81,6 +81,12 @@ vim /etc/fstab
 ```
 
 ![img.png](images/fstab.png)
+
+### 9.2 配置启动自动挂载
+
+···shell
+  /dev/sdb    /hanhan    ext4    defaults    0 0
+···
 
 ## 10.重启
 
