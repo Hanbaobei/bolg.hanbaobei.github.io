@@ -1,6 +1,7 @@
 {
   "name": "hanhannotes",
   "scripts": {
-    "dev": "docsify serve"
+    "dev": "docsify serve",
+    "start": "docsify build"
   }
 }
