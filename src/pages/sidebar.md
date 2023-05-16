@@ -26,6 +26,7 @@
 - [Docker笔记](/src/docs/notes/Docker/README.md)
     - [使用Docker搭建Centos开发环境镜像](/src/docs/notes/Docker/使用Docker搭建Centos开发环境镜像/使用Docker搭建Centos开发环境镜像.md)
     - [使用Docker搭建Minio存储服务器](/src/docs/notes/Docker/使用Docker搭建Minio存储服务器/使用Docker搭建Minio存储服务器.md)
+    - [使用Docker搭建Nacos注册中心](/src/docs/notes/Docker/使用Docker搭建Nacos注册中心)
 - [NodeJs使用](/src/docs/notes/NodeJs/README.md)
     - [离线IP地址定位库(ip2region)](/src/docs/NodeJs/离线IP地址定位库/离线IP地址定位库.md)
 - [自动化部署](/src/docs/notes/自动化部署/README.md)
